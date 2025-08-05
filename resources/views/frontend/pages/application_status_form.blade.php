@@ -115,7 +115,7 @@
     <div class="container">
         <header>
             <img src="logo.png" alt="BritFly Jobs Logo" class="logo">
-            <h1>BritFly Jobs</h1>
+            <h1>𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 Jobs</h1>
             <p><a href="#" style="color: red;">Applied already? Click here to check status.</a></p>
         </header>
 

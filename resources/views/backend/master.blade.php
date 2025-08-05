@@ -148,21 +148,13 @@
     @include('sweetalert::alert')
 
 
-    <div class="ps__rail-x" style="left: 0px; bottom: 0px;">
-      <div class="ps__thumb-x" tabindex="0" style="left: 0px; width: 0px;"></div>
-    </div>
-    <div class="ps__rail-y" style="top: 0px; height: 586px; right: 0px;">
-      <div class="ps__thumb-y" tabindex="0" style="top: 0px; height: 103px;"></div>
-    </div>
+  
   </main>
   <main class="main-content position-relative max-height-vh-100 border-radius-lg ps ps--active-y" style="padding-bottom: 30px;">
 
     @include('backend.partial.footer')
   </main>
   <div class="fixed-plugin ps">
-    <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="fa fa-cog py-2"> </i>
-    </a>
     <div class="card shadow-lg ">
       <div class="card-header pb-0 pt-3 ">
         <div class="float-start">

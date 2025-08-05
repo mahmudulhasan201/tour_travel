@@ -4,12 +4,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta content="width=device-width, initial-scale=1.0" name="viewport">
-	<title>Tour</title>
+	<title>𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺</title>
 	<meta name="description" content="">
 	<meta name="keywords" content="">
 
 	<!-- Favicons -->
-	<link href="{{url('frontend/assets/img/favicon.png')}}" rel="icon">
+	<link href="{{url('logo.png')}}" rel="icon">
 	<link href="{{url('frontend/assets/img/apple-touch-icon.png')}}" rel="apple-touch-icon">
 
 	<!-- Fonts -->

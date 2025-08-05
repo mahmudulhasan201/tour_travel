@@ -3,7 +3,7 @@
 			<div class="row gy-4">
 				<div class="col-lg-4 col-md-6 footer-about">
 					<a href="index.html" class="d-flex align-items-center">
-						<span class="sitename">Tour</span>
+						<img style="height: 150px; width: 150px;" src="{{ url('logo.png') }}" alt="">
 					</a>
 					<div class="footer-contact pt-3">
 						<p>A108 Adam Street</p>
@@ -54,7 +54,7 @@
 				<!-- You can delete the links only if you've purchased the pro version. -->
 				<!-- Licensing information: https://bootstrapmade.com/license/ -->
 				<!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-				Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+				Designed by <a href="">abcd</a>
 			</div>
 		</div>
 

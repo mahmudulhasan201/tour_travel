@@ -1,5 +1,9 @@
 <?php
 
+use App\Models\Admin;
+use App\Models\Customer;
+use App\Models\User;
+
 return [
 
     /*
@@ -74,17 +78,17 @@ return [
     'providers' => [
         'users' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\User::class),
+            'model' => env('AUTH_MODEL', User::class),
         ],
 
         'admins' => [
             'driver' => 'eloquent',
-            'model' => env('AUTH_MODEL', App\Models\Admin::class),
+            'model' => env('AUTH_MODEL', Admin::class),
         ],
 
         'customers' => [
             'driver' => 'eloquent',
-            'model' => App\Models\Customer::class,
+            'model' => env('AUTH_MODEL', Customer::class),
         ],
 
         // 'users' => [

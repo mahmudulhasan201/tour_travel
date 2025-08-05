@@ -4,7 +4,7 @@
     <!-- 1st Column: Logo -->
     <div class="col-md-2 d-flex align-items-center">
       <a href="index.html" class="logo d-flex align-items-center">
-        <img src="{{ url('frontend/logo.png') }}" alt="Logo" width="150" height="100">
+        <img src="{{ url('logo.png') }}" alt="Logo" width="150" height="100">
       </a>
     </div>
 

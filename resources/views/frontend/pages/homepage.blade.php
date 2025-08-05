@@ -18,8 +18,8 @@
              <div class="row align-items-center">
                  <div class="col-lg-7">
                      <div class="hero-text" data-aos="fade-up" data-aos-delay="100" style="padding-top: 20px;">
-                         <h1 class="hero-title">BritFly</h1>
-                         <p class="hero-subtitle">One of the Best organizations in the United Arab Emirates (UAE), We seek to create close, long-lasting and mutually beneficial partnerships with all our clients and candidates. We are committed to the highest standards of excellence and professionalism. We value and invest in our agency personnel, developing skills and enabling their employment aspirations to be fulfilled.</p>
+                         <h6 style="font-size: 30px;" class="">𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺</h6>
+                         <p class="hero-subtitle">One of the Best organizations in the Bangladesh, We seek to create close, long-lasting and mutually beneficial partnerships with all our clients and candidates. We are committed to the highest standards of excellence and professionalism. We value and invest in our agency personnel, developing skills and enabling their employment aspirations to be fulfilled.</p>
                          <p class="hero-subtitle">Our aim is simple; to provide skilled candidates, flexible and adaptable, with the ability to perform a premier service for all our clients, no matter the time, 365 days a year.</p>
                          <!-- <div class="hero-buttons"> 
                              <a href="#" class="btn btn-primary me-3">Start Exploring</a>

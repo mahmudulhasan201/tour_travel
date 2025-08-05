@@ -5,37 +5,51 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
+use Exception;
 
 class AuthController extends Controller
 {
+    //admin login form view
     public function showLoginForm()
     {
-        return view('backend.pages.adminLogin');
+        try {
+            return view('backend.pages.adminLogin');
+        } catch (Exception $e) {
+            Alert::error('Error', 'Something went wrong while loading the admin login form.');
+            return redirect()->back();
+        }
     }
 
+    //admin login form submit
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
-        // dd($credentials);
-        if (Auth::guard('admin')->attempt($credentials)) {
-            return redirect()->route('dashboard');
-        }
+        try {
+            $credentials = $request->only('email', 'password');
 
-        return redirect()->back()->withErrors([
-            'email' => 'Invalid credentials!',
-        ])->withInput();
+            if (Auth::guard('admin')->attempt($credentials)) {
+                Alert::success('Success', 'Welcome back, Admin!');
+                return redirect()->route('dashboard');
+            }
+
+            Alert::error('Error', 'Invalid credentials! Please try again.');
+            return redirect()->back();
+        } catch (Exception $e) {
+            Alert::error('Error', $e->getMessage());
+            return redirect()->back();
+        }
     }
 
-    //logout
+    //admin logout
     public function adminLogout()
     {
-        Auth::logout(); //(works in laravel 11)
-        // auth()->logout();(works in laravel 10)
-
-        // notify()->success("Sign Out Successful.");
-        return redirect()->route('login');
+        try {
+            Auth::guard('admin')->logout();
+            Alert::success('Success', 'Log out Successfully.');
+            return redirect()->route('login');
+        } catch (Exception $e) {
+            Alert::error('Error', 'Something went wrong while logging out.');
+            return redirect()->back();
+        }
     }
 }
-
-
-

@@ -3,15 +3,28 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Exception;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class EventController extends Controller
 {
-    public function eList(){
-        return view('backend.pages.event.index');
+    public function eList()
+    {
+        try {
+            return view('backend.pages.event.index');
+        } catch (Exception $e) {
+            Alert::error('Error', 'Something went wrong while loading the Event List page.');
+            return redirect()->back();
+        }
     }
 
-    public function eForm(){
-        return view('backend.pages.event.form');
+    public function eForm()
+    {
+        try {
+            return view('backend.pages.event.form');
+        } catch (Exception $e) {
+            Alert::error('Error', 'Something went wrong while loading the Event Form page.');
+            return redirect()->back();
+        }
     }
 }

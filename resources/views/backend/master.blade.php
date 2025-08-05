@@ -4,11 +4,11 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
-  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <link rel="icon" type="image/png" href="{{url('logo.png')}}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <title>
-    Tour Travel
+    𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺
   </title>
   <!-- Extra details for Live View on GitHub Pages -->
   <!-- Canonical SEO -->
@@ -34,8 +34,8 @@
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700,800" rel="stylesheet">
   <!-- Nucleo Icons -->
-  <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-icons.css" rel="stylesheet">
-  <link href="https://demos.creative-tim.com/argon-dashboard-pro/assets/css/nucleo-svg.css" rel="stylesheet">
+  <link href="{{url('backend/assets/css/nucleo-icons.css')}}" rel="stylesheet">
+  <link href="{{url('backend/assets/css/nucleo-svg.css')}}" rel="stylesheet">
   <!-- Font Awesome Icons -->
   <script src="https://ct.pinterest.com/static/ct/token_create.js"></script>
   <script type="text/javascript" async="" src="https://analytics.tiktok.com/i18n/pixel/static/identify_ecbed230.js"></script>
@@ -572,51 +572,6 @@
     }
   </style>
 
-  <script type="text/javascript" id="" charset="">
-    function setCookie(a, d, c) {
-      var b = new Date;
-      b.setTime(b.getTime() + c * 24 * 60 * 60 * 1E3);
-      c = "expires\x3d" + b.toUTCString();
-      document.cookie = a + "\x3d" + d + ";" + c + ";path\x3d/"
-    }
-
-    function readDomain() {
-      domain = window.location.hostname;
-      if (domain == "hrm.newflex.co.kr") {
-        console.log("Remove the script");
-        var a = document.createElement("div");
-        a.setAttribute("id", "pls-contact-me-on-email");
-        a.innerHTML = "\x3ch1\x3ePlease Remove the Stolen Google Analytics from \x3ca href\x3d'https://www.creative-tim.com/?ref\x3dstolen-website' target\x3d'_blank' '\x3ecreative-tim.com\x3c/a\x3e Please send an email to beni@creative-tim.com to help you remove our scripts.\x3c/h1\x3e";
-        document.body.insertBefore(a,
-          document.body.firstChild)
-      }
-    }
-
-    function readCookie(a) {
-      a += "\x3d";
-      for (var d = document.cookie.split(";"), c = 0; c < d.length; c++) {
-        for (var b = d[c]; b.charAt(0) == " ";) b = b.substring(1, b.length);
-        if (b.indexOf(a) == 0) return b.substring(a.length, b.length)
-      }
-      return null
-    }
-
-    function createOfferBar() {
-      readDomain();
-      var a = document.createElement("div");
-      a.setAttribute("id", "ofBar");
-      a.innerHTML = "\x3cdiv id\x3d'ofBar-logo'\x3e \x3cimg alt\x3d'creative-tim-logo' src\x3d'https://s3.amazonaws.com/creativetim_bucket/static-assets/logo-ct-black.png'\x3e\x3c/div\x3e\x3cdiv id\x3d'ofBar-content'\x3e\ud83d\udd25 Be Strong in 2025: \x3cb\x3eUnlock the All-Access Pass \u2013 80% OFF\x3c/b\x3e! \u2764\ufe0f Don't Miss Out!\x3c/div\x3e\x3cdiv id\x3d'ofBar-right'\x3e\x3ca href\x3d'https://www.creative-tim.com/campaign?ref\x3dct-demos' target\x3d'_blank' id\x3d'btn-bar'\x3eView Offer\x3c/a\x3e\x3ca id\x3d'close-bar'\x3e\u00d7\x3c/a\x3e\x3c/div\x3e";
-      document.body.insertBefore(a,
-        document.body.firstChild)
-    }
-
-    function closeOfferBar() {
-      document.getElementById("ofBar").setAttribute("style", "display:none");
-      setCookie("view_offer_bar", "true", 1)
-    }
-    var value = readCookie("view_offer_bar");
-    value == null && (createOfferBar(), document.getElementById("close-bar").addEventListener("click", closeOfferBar));
-  </script>
   <script type="text/javascript" id="" charset="">
     ! function(d, g, e) {
       d.TiktokAnalyticsObject = e;

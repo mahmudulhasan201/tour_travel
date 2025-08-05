@@ -1,9 +1,8 @@
   <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 ps ps--active-y bg-white" id="sidenav-main">
-      <div class="sidenav-header">
-          <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-xl-none" aria-hidden="true" id="iconSidenav"></i>
-          <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html " target="_blank">
-              <img src="{{url('backend/assets/img/logo-ct-dark.png')}}" class="navbar-brand-img h-100" alt="main_logo">
-              <span class="ms-1 font-weight-bold">Tour Travel</span>
+      <div class="sidenav-header pt-4">
+          <a class="" href="" target="_blank">
+              <img src="{{url('logo.png')}}" class="navbar-brand-img h-100" alt="main_logo">
+              <small class="">Shahriar Worldwide Ventures</small>
           </a>
       </div>
       <hr class="horizontal dark mt-0">
@@ -29,11 +28,11 @@
           <span class="fw-semibold fs-6">Service</span>
       </a>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
+      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{route('admin.gallery.list')}}">
           <div class="sb-nav-link-icon">
-              <i class="fas fa-book" style="color: #6f42c1;"></i> <!-- Purple Booking Icon -->
+              <i class="fas fa-photo-video" style="color: #6f42c1;"></i> <!-- Purple Booking Icon -->
           </div>
-          <span class="fw-semibold fs-6">Booking</span>
+          <span class="fw-semibold fs-6">Gallery</span>
       </a>
 
       <!-- <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
@@ -86,8 +85,6 @@
           <span class="fw-semibold fs-6">Payment</span>
       </a>
 
-      <hr class="text-white my-2">
-      <div class="sb-sidenav-menu-heading">External</div>
 
       <a class="nav-link collapsed d-flex align-items-center gap-2" href="#" data-bs-toggle="collapse"
           data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">

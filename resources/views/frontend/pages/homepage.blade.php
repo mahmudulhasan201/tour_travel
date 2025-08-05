@@ -218,7 +218,7 @@
                          <div class="badge-wrapper mb-3">
                          </div>
                          <h2 style="font-weight: 700; margin-bottom: 15px;">We are “Authentic” and we “care”</h2>
-                         <p style="margin-bottom: 25px;">“Our Britfly Licensed Consultant Offers valuable information that can guide you successfully through the complex of visa system until you lodge your Work permit Application With Our Britfly , we focus energy and attention on our client’s wishes and goals. We make sure that we provide the highly personalized service that our clients need.</p>
+                         <p style="margin-bottom: 25px;">“Our 𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 Licensed Consultant Offers valuable information that can guide you successfully through the complex of visa system until you lodge your Work permit Application With Our 𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 , we focus energy and attention on our client’s wishes and goals. We make sure that we provide the highly personalized service that our clients need.</p>
                          <p style="margin-bottom: 25px;">We are AUTHENTIC and we CARE. For us it’s not just work, we take pride in building a FRIENDSHIP with our clients.”</p>
 
                          <div class="action-section">

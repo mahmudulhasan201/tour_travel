@@ -18,7 +18,7 @@
              <div class="row align-items-center">
                  <div class="col-lg-7">
                      <div class="hero-text" data-aos="fade-up" data-aos-delay="100" style="padding-top: 20px;">
-                         <h6 style="font-size: 30px;" class="">𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺</h6>
+                         <h6 style="font-size: 30px;" class="">Shahriar Worldwide Ventures</h6>
                          <p class="hero-subtitle">One of the Best organizations in the Bangladesh, We seek to create close, long-lasting and mutually beneficial partnerships with all our clients and candidates. We are committed to the highest standards of excellence and professionalism. We value and invest in our agency personnel, developing skills and enabling their employment aspirations to be fulfilled.</p>
                          <p class="hero-subtitle">Our aim is simple; to provide skilled candidates, flexible and adaptable, with the ability to perform a premier service for all our clients, no matter the time, 365 days a year.</p>
                          <!-- <div class="hero-buttons"> 
@@ -218,7 +218,7 @@
                          <div class="badge-wrapper mb-3">
                          </div>
                          <h2 style="font-weight: 700; margin-bottom: 15px;">We are “Authentic” and we “care”</h2>
-                         <p style="margin-bottom: 25px;">“Our 𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 Licensed Consultant Offers valuable information that can guide you successfully through the complex of visa system until you lodge your Work permit Application With Our 𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 , we focus energy and attention on our client’s wishes and goals. We make sure that we provide the highly personalized service that our clients need.</p>
+                         <p style="margin-bottom: 25px;">“Our Shahriar Worldwide Venture Licensed Consultant Offers valuable information that can guide you successfully through the complex of visa system until you lodge your Work permit Application With Our 𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺 , we focus energy and attention on our client’s wishes and goals. We make sure that we provide the highly personalized service that our clients need.</p>
                          <p style="margin-bottom: 25px;">We are AUTHENTIC and we CARE. For us it’s not just work, we take pride in building a FRIENDSHIP with our clients.”</p>
 
                          <div class="action-section">

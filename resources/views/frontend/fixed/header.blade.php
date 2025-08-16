@@ -16,13 +16,13 @@
         <ul class="d-flex justify-content-center flex-wrap" style="list-style: none; padding: 0;">
           <li class="nav-item"><a href="{{ route('homepage') }}" class="active">Home</a></li>
           <li class="nav-item"><a href="{{route('about.us')}}">About</a></li>
-          <li class="nav-item"><a href="destinations.html">Our Service</a></li>
+          <li class="nav-item"><a href="{{route('all.services')}}">Our Service</a></li>
           <li class="nav-item"><a href="{{route('create.application')}}">How to Apply</a></li>
           <li class="nav-item dropdown">
             <a href="#"><span>Visa Success</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
             <ul>
-              <li><a href="destination-details.html"> Visa Gallery</a></li>
-              <li><a href="tour-details.html">Video</a></li>
+              <li><a href="{{route('all.gallery')}}"> Visa Gallery</a></li>
+              <li><a href="{{route('all.video')}}">Video</a></li>
             </ul>
           </li>
         </ul>

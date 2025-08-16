@@ -42,58 +42,25 @@
                          <h1>Our Special Services</h1>
                      </div>
                  </div>
+                 @foreach($services as $service)
                  <div class="newsletter-card">
                      <div class="newsletter-content">
                          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
                              <div class="content">
-                                 <h3>Malta Work Permit</h3>
-                                 <p>Malta is a Most Beautiful Country in Schengen area. Getting Maltese Visa much easier now, Britfly provides you all of Work permit services.</p>
+                                 <h3>{{$service->name}}</h3>
+                                 <p>{{$service->description}}</p>
                              </div>
                          </div>
                          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
                              <div class="about-image">
-                                 <img width="480" src="{{url('frontend/assets/img/travel/showcase-8.webp')}}" alt="Travel Experience" class="img-fluid rounded-4">
+                                 <img width="480" src="{{$service->image_url}}" alt="Travel Experience" class="img-fluid rounded-4">
                              </div>
                          </div>
                      </div>
                  </div>
+                 @endforeach
              </div>
              <br><br>
-             <div class="newsletter-section" data-aos="fade-up" data-aos-delay="300">
-                 <div class="newsletter-card">
-                     <div class="newsletter-content">
-                         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                             <div class="content">
-                                 <h3>Croatia Work Permit</h3>
-                                 <p>Now a Days, Croatia is a perfect destination for job, travel, and study purposes, Britfly also provides Croatian Work permit services.</p>
-                             </div>
-                         </div>
-                         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                             <div class="about-image">
-                                 <img width="480" src="{{url('frontend/assets/img/travel/showcase-8.webp')}}" alt="Travel Experience" class="img-fluid rounded-4">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <br><br>
-             <div class="newsletter-section" data-aos="fade-up" data-aos-delay="300">
-                 <div class="newsletter-card">
-                     <div class="newsletter-content">
-                         <div class="col-lg-6" data-aos="fade-right" data-aos-delay="200">
-                             <div class="content">
-                                 <h3>Poland Work Permit</h3>
-                                 <p>Poland also a most popular destination for job and study purpose. Britfly Also recruits workers for Poland work permit.</p>
-                             </div>
-                         </div>
-                         <div class="col-lg-6" data-aos="fade-left" data-aos-delay="300">
-                             <div class="about-image">
-                                 <img width="480" src="{{url('frontend/assets/img/travel/showcase-8.webp')}}" alt="Travel Experience" class="img-fluid rounded-4">
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
          </div>
      </section><!-- /Call To Action Section -->
 

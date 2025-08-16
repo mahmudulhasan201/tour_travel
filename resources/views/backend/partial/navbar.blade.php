@@ -1,27 +1,48 @@
-   <!-- Navbar -->
-    <nav class="navbar navbar-main navbar-expand-lg px-0 mx-4 shadow-none border-radius-xl" id="navbarBlur" navbar-scroll="true">
-      <div class="container-fluid py-1 px-3">
-        <nav aria-label="breadcrumb">
-          <ol class="breadcrumb bg-transparent mb-0 pb-0 pt-1 px-0 me-sm-6 me-5">
-            <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark" href="javascript:;">Pages</a></li>
-            <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Dashboard</li>
-          </ol>
-          <h6 class="font-weight-bolder mb-0">Dashboard</h6>
-        </nav>
-        <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
-          <div class="ms-md-auto pe-md-3 d-flex align-items-center">
-            <div class="input-group">
-            </div>
-          </div>
-          <ul class="navbar-nav  justify-content-end">
-            <li class="nav-item d-flex align-items-center">
-              <a href="{{ route('logout') }}" class="nav-link text-body font-weight-bold px-0">
-              <i class="fas fa-sign-out-alt" style="color: #DC143C;"></i> <!-- Red Sign Out Icon -->
-                <span class="d-sm-inline d-none">Sign out</span>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-    <!-- End Navbar -->
+     <nav class="navbar header-navbar pcoded-header">
+       <div class="navbar-wrapper">
+         <div class="navbar-logo">
+           <a class="mobile-menu waves-effect waves-light" id="mobile-collapse" href="#!">
+             <i class="ti-menu"></i>
+           </a>
+           <div class="mobile-search waves-effect waves-light">
+             <div class="header-search">
+               <div class="main-search morphsearch-search">
+                 <div class="input-group">
+                   <span class="input-group-addon search-close"><i class="ti-close"></i></span>
+                   <input type="text" class="form-control" placeholder="Enter Keyword">
+                   <span class="input-group-addon search-btn"><i class="ti-search"></i></span>
+                 </div>
+               </div>
+             </div>
+           </div>
+           <a href="index.html">
+             <img class="img-fluid" src="{{url('backend/assets/images/logo.png')}}" alt="Theme-Logo" />
+           </a>
+           <a class="mobile-options waves-effect waves-light">
+             <i class="ti-more"></i>
+           </a>
+         </div>
+
+         <div class="navbar-container container-fluid">
+           <ul class="nav-left">
+             <li>
+               <div class="sidebar_toggle"><a href="javascript:void(0)"><i class="ti-menu"></i></a></div>
+             </li>
+             <li>
+               <a href="#!" onclick="javascript:toggleFullScreen()" class="waves-effect waves-light">
+                 <i class="ti-fullscreen"></i>
+               </a>
+             </li>
+           </ul>
+
+           <ul class="nav-right">
+             <li class="user-profile header-notification">
+               <a href="{{route('logout')}}" class="waves-effect waves-light">
+                 <span>Sign Out</span>
+               </a>
+             </li>
+           </ul>
+
+         </div>
+       </div>
+     </nav>

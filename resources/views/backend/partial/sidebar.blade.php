@@ -1,139 +1,85 @@
-  <aside class="sidenav navbar navbar-vertical navbar-expand-xs border-0 border-radius-xl my-3 fixed-start ms-3 ps ps--active-y bg-white" id="sidenav-main">
-      <div class="sidenav-header pt-4">
-          <a class="" href="" target="_blank">
-              <img src="{{url('logo.png')}}" class="navbar-brand-img h-100" alt="main_logo">
-              <small class="">Shahriar Worldwide Ventures</small>
-          </a>
-      </div>
-      <hr class="horizontal dark mt-0">
+ <nav class="pcoded-navbar">
+     <div class="sidebar_toggle"><a href="#"><i class="icon-close icons"></i></a></div>
+     <div class="pcoded-inner-navbar main-menu">
+         <div class="">
+             <div class="main-menu-header">
+                 <img class="img-80 img-radius" src="{{ asset(auth('admin')->user()->imageUrl) }}" alt="User-Profile-Image">
+                 <div class="user-details">
+                     <span id="more-details">{{auth('admin')->user()->name}}<i class="fa fa-caret-down"></i></span>
+                 </div>
+             </div>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{ route('dashboard') }}">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-tachometer-alt" style="color: #1E90FF;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Dashboard</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{route('admin.event.list')}}">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-calendar-alt" style="color: #20c997;"></i> <!-- Teal Event Icon -->
-          </div>
-          <span class="fw-semibold fs-6">Event</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{route('admin.service.list')}}">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-concierge-bell" style="color: #fd7e14;"></i> <!-- Orange Service Icon -->
-          </div>
-          <span class="fw-semibold fs-6">Service</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{route('admin.gallery.list')}}">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-photo-video" style="color: #6f42c1;"></i> <!-- Purple Booking Icon -->
-          </div>
-          <span class="fw-semibold fs-6">Gallery</span>
-      </a>
-
-      <!-- <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-layer-group" style="color: #6f42c1;"></i>
-          </div>
-          Group
-      </a>
+             <div class="main-menu-content">
+                 <ul>
+                     <li class="more-details">
+                         <a href="user-profile.html"><i class="ti-user"></i>View Profile</a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+         <br>
 
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-th-large" style="color: #6f42c1;"></i>
-          </div>
-          Category
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-tags" style="color: #FF5733;"></i>
-          </div>
-          Brand
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-box" style="color: #28a745;"></i>
-          </div>
-          Product
-      </a> -->
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-user-tag" style="color: #FFC107;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Customer</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-shopping-cart" style="color: #17a2b8;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Order</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-credit-card" style="color: #4CAF50;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Payment</span>
-      </a>
+         <ul class="pcoded-item pcoded-left-item">
+             <li class="active">
+                 <a href="{{ route('dashboard') }}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-home"></i><b>D</b></span>
+                     <span class="pcoded-mtext" data-i18n="nav.dash.main">Dashboard</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
 
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#" data-bs-toggle="collapse"
-          data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-heart" style="color: #FF69B4;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Wish-List</span>
-      </a>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#" data-bs-toggle="collapse"
-          data-bs-target="#collapsePages" aria-expanded="false" aria-controls="collapsePages">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-chart-bar" style="color: #4682B4;"></i> <!-- Steel Blue Report Icon -->
-          </div>
-          <span class="fw-semibold fs-6">Report</span>
-      </a>
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.service.list')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-briefcase"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Service</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-percentage" style="color: #FF6347;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Discount</span>
-      </a>
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.gallery.index')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-gallery"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Gallery</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-id-badge" style="color: #4CAF50;"></i>
-          </div>
-          <span class="fw-semibold fs-6">Role</span>
-      </a>
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('video.list')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-video-camera"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Video</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-user" style="color: #4682B4;"></i>
-          </div>
-          <span class="fw-semibold fs-6">User</span>
-      </a>
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.jobcategory.index')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-menu-alt"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Job Category</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.application.view')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-eye"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Job Application View</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
 
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="#">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-cog" style="color: #808080;"></i> <!-- Grey Setting Icon -->
-          </div>
-          <span class="fw-semibold fs-6">Setting</span>
-      </a>
-
-      <a class="nav-link collapsed d-flex align-items-center gap-2" href="{{ route('logout') }}">
-          <div class="sb-nav-link-icon">
-              <i class="fas fa-sign-out-alt" style="color: #DC143C;"></i> <!-- Red Sign Out Icon -->
-          </div>
-          <span class="fw-semibold fs-6">SignOut</span>
-      </a>
-  </aside>
+     </div>
+ </nav>

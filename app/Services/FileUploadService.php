@@ -12,7 +12,7 @@ class FileUploadService
         $imageName = null;
 
         if ($file) {
-            $imageName =uniqid() . '_' . date('YmdHis') . '.' . $file->getClientOriginalExtension();
+            $imageName = date('YmdHis') . '.' . $file->getClientOriginalExtension();
             $file->storeAs($path, $imageName);
         }
         return $imageName;

@@ -1,139 +1,146 @@
- @extends('backend.master')
+@extends('backend.master')
+@section('content')
+<div class="pcoded-content">
 
- @section('content')
+    <!-- Page-header start -->
+    <div class="page-header">
+        <div class="page-block">
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <div class="page-header-title">
+                        <h5 class="m-b-10">Dashboard</h5>
+                        <p class="m-b-0">Welcome Admin</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul class="breadcrumb-title">
+                        <li class="breadcrumb-item">
+                            <a href="index.html"> <i class="fa fa-home"></i> </a>
+                        </li>
+                        <li class="breadcrumb-item"><a href="#!">Dashboard</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page-header end -->
 
- <div class="container-fluid py-4">
-     <div class="row">
-         <div class="col-lg-6 col-12">
-             <div class="row">
-                 <div class="col-lg-6 col-md-6 col-12">
-                     <div class="card">
-                         <span class="mask bg-primary opacity-10 border-radius-lg"></span>
-                         <div class="card-body p-3 position-relative">
-                             <div class="row">
-                                 <div class="col-8 text-start">
-                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                         <i class="ni ni-circle-08 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
-                                     </div>
-                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                         1600
-                                     </h5>
-                                     <span class="text-white text-sm">Users Active</span>
-                                 </div>
-                                 <div class="col-4">
-                                     <div class="dropdown text-end mb-6">
-                                         <a href="javascript:;" class="cursor-pointer" id="dropdownUsers1" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="fa fa-ellipsis-h text-white"></i>
-                                         </a>
-                                         <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers1">
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                         </ul>
-                                     </div>
-                                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+55%</p>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
-                     <div class="card">
-                         <span class="mask bg-dark opacity-10 border-radius-lg"></span>
-                         <div class="card-body p-3 position-relative">
-                             <div class="row">
-                                 <div class="col-8 text-start">
-                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                         <i class="ni ni-active-40 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
-                                     </div>
-                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                         357
-                                     </h5>
-                                     <span class="text-white text-sm">Click Events</span>
-                                 </div>
-                                 <div class="col-4">
-                                     <div class="dropstart text-end mb-6">
-                                         <a href="javascript:;" class="cursor-pointer" id="dropdownUsers2" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="fa fa-ellipsis-h text-white"></i>
-                                         </a>
-                                         <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers2">
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                         </ul>
-                                     </div>
-                                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+124%</p>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-             <div class="row mt-4">
-                 <div class="col-lg-6 col-md-6 col-12">
-                     <div class="card">
-                         <span class="mask bg-dark opacity-10 border-radius-lg"></span>
-                         <div class="card-body p-3 position-relative">
-                             <div class="row">
-                                 <div class="col-8 text-start">
-                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                         <i class="ni ni-cart text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
-                                     </div>
-                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                         2300
-                                     </h5>
-                                     <span class="text-white text-sm">Purchases</span>
-                                 </div>
-                                 <div class="col-4">
-                                     <div class="dropdown text-end mb-6">
-                                         <a href="javascript:;" class="cursor-pointer" id="dropdownUsers3" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="fa fa-ellipsis-h text-white"></i>
-                                         </a>
-                                         <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers3">
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                         </ul>
-                                     </div>
-                                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+15%</p>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-                 <div class="col-lg-6 col-md-6 col-12 mt-4 mt-md-0">
-                     <div class="card">
-                         <span class="mask bg-dark opacity-10 border-radius-lg"></span>
-                         <div class="card-body p-3 position-relative">
-                             <div class="row">
-                                 <div class="col-8 text-start">
-                                     <div class="icon icon-shape bg-white shadow text-center border-radius-2xl">
-                                         <i class="ni ni-like-2 text-dark text-gradient text-lg opacity-10" aria-hidden="true"></i>
-                                     </div>
-                                     <h5 class="text-white font-weight-bolder mb-0 mt-3">
-                                         940
-                                     </h5>
-                                     <span class="text-white text-sm">Likes</span>
-                                 </div>
-                                 <div class="col-4">
-                                     <div class="dropstart text-end mb-6">
-                                         <a href="javascript:;" class="cursor-pointer" id="dropdownUsers4" data-bs-toggle="dropdown" aria-expanded="false">
-                                             <i class="fa fa-ellipsis-h text-white"></i>
-                                         </a>
-                                         <ul class="dropdown-menu px-2 py-3" aria-labelledby="dropdownUsers4">
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Another action</a></li>
-                                             <li><a class="dropdown-item border-radius-md" href="javascript:;">Something else here</a></li>
-                                         </ul>
-                                     </div>
-                                     <p class="text-white text-sm text-end font-weight-bolder mt-auto mb-0">+90%</p>
-                                 </div>
-                             </div>
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </div>
+    <div class="pcoded-inner-content">
+        <!-- Main-body start -->
+        <div class="main-body">
+            <div class="page-wrapper">
+                <!-- Page-body start -->
+                <div class="page-body">
+                    <div class="row">
+                        <!-- task, page, download counter  start -->
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-purple">$30200</h4>
+                                            <h6 class="text-muted m-b-0">All Earnings</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="fa fa-briefcase f-28"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-c-purple">
+                                    <div class="row align-items-center">
+                                        <div class="col-9">
+                                            <p class="text-white m-b-0"><strong>Service</strong></p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <i class="fa fa-line-chart text-white f-16"></i>
+                                        </div>
+                                    </div>
 
-     @endsection
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-green">290+</h4>
+                                            <h6 class="text-muted m-b-0">Page Views</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="fa fa-image f-28"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-c-green">
+                                    <div class="row align-items-center">
+                                        <div class="col-9">
+                                            <p class="text-white m-b-0"><strong>Gallery</strong></p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <i class="fa fa-line-chart text-white f-16"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-red">145</h4>
+                                            <h6 class="text-muted m-b-0">Task Completed</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="fa fa-video-camera f-28"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-c-red">
+                                    <div class="row align-items-center">
+                                        <div class="col-9">
+                                            <p class="text-white m-b-0"><Strong>Video</Strong></p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <i class="fa fa-line-chart text-white f-16"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-md-6">
+                            <div class="card">
+                                <div class="card-block">
+                                    <div class="row align-items-center">
+                                        <div class="col-8">
+                                            <h4 class="text-c-blue">500</h4>
+                                            <h6 class="text-muted m-b-0">Downloads</h6>
+                                        </div>
+                                        <div class="col-4 text-right">
+                                            <i class="fa fa-bar-chart f-28"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer bg-c-blue">
+                                    <div class="row align-items-center">
+                                        <div class="col-9">
+                                            <p class="text-white m-b-0"><strong>Report</strong></p>
+                                        </div>
+                                        <div class="col-3 text-right">
+                                            <i class="fa fa-line-chart text-white f-16"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- task, page, download counter  end -->
+                    </div>
+                </div>
+                <!-- Page-body end -->
+            </div>
+        </div>
+    </div>
+</div>
+@endsection

@@ -25,10 +25,17 @@ class ApplicationController extends Controller
                     })
                     ->addColumn('action', function ($row) {
                         $viewUrl = route('admin.application.view.details', $row->id);
+                        $approveUrl = route('admin.application.approve', $row->id);
+                        $rejectUrl = route('admin.application.reject', $row->id);
 
                         $buttons = '';
 
-                        $buttons .= '<a href="' . $viewUrl . '" class="view btn btn-primary btn-sm">View</a> ';
+                        $buttons .= '<a href="' . $viewUrl . '" class="view btn btn-info btn-sm">View</a> ';
+
+                        if (!in_array(strtolower($row->status), ['approved', 'rejected'])) {
+                            $buttons .= '<a href="' . $approveUrl . '" class="btn btn-success btn-sm">Approve</a> ';
+                            $buttons .= '<a href="' . $rejectUrl . '" class="btn btn-danger btn-sm">Reject</a> ';
+                        }
 
                         return $buttons;
                     })
@@ -51,10 +58,41 @@ class ApplicationController extends Controller
         }
     }
 
-    public function applicationViewDetails($id) 
+    public function applicationViewDetails($id)
     {
         $application = Application::with('jobCategory')->find($id);
         // dd($application);
         return view('backend.pages.application.view_details', compact('application'));
+    }
+
+
+    public function approve($id)
+    {
+        try {
+            $application = Application::findOrFail($id);
+            $application->status = 'approved';
+            $application->save();
+
+            Alert::success('Approved', 'Application has been approved successfully.');
+            return redirect()->back();
+        } catch (Exception $e) {
+            Alert::error('Error', 'Failed to approve application: ' . $e->getMessage());
+            return redirect()->back();
+        }
+    }
+
+    public function reject($id)
+    {
+        try {
+            $application = Application::findOrFail($id);
+            $application->status = 'rejected';
+            $application->save();
+
+            Alert::success('Rejected', 'Application has been rejected successfully.');
+            return redirect()->back();
+        } catch (Exception $e) {
+            Alert::error('Error', 'Failed to reject application: ' . $e->getMessage());
+            return redirect()->back();
+        }
     }
 }

@@ -235,12 +235,6 @@ h6 {
     order: 3;
   }
 
-  /* --- Login/Register Icon Dropdown --- */
-  .custom-icon-dropdown {
-    position: relative;
-    list-style: none;
-  }
-
   .custom-icon-dropdown .icon-dropdown-menu {
     display: none;
     position: absolute;

@@ -1,6 +1,8 @@
 <head>
-    <title>𝑺𝑯𝑨𝑯𝑹𝑰𝑨𝑹 𝑾𝑶𝑹𝑳𝑫𝑾𝑰𝑫𝑬 𝑽𝑬𝑵𝑻𝑼𝑹𝑬𝑺</title>
-    <link href="{{url('logo.png')}}" rel="icon">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SHAHRIAR WORLDWIDE VENTURES</title>
+    <link href="{{ url('logo.png') }}" rel="icon">
 </head>
 <style>
     :root {
@@ -227,65 +229,56 @@
             </div>
         </div>
     </div>
-    {{-- Header --}}
-    <div class="app-header"
-        style="display:flex; justify-content:space-between; align-items:center;">
 
-        <!-- Left -->
+    {{-- Header with Invoice --}}
+    <div class="app-header" style="justify-content: space-between;">
         <div class="meta">
             <div><strong>Date Submitted:</strong></div>
             <div>{{ $application['date'] ?? '-' }}</div>
         </div>
 
-        <!-- Center -->
         <div class="app-title" style="text-align:center; flex:1;">
             <h3>Application for Job</h3>
         </div>
 
-        <!-- Right -->
-        <div class="profile" style="text-align:right;">
+        <div class="profile">
             @if(!empty($application['avatar']))
-            <img src="{{ asset($application['avatar']) }}"
-                alt="Avatar"
-                style="height:100px; width:100px; object-fit:cover; border-radius:50%;">
+            <img src="{{ asset($application['avatar']) }}" alt="Avatar" style="height:100px; width:100px; object-fit:cover; border-radius:50%;">
             @else
             <span>-</span>
             @endif
         </div>
     </div>
 
-    {{-- Title --}}
+    <div class="app-title" style="text-align:center;">
+        <strong>Invoice No: {{ $invoice_no }}</strong>
+    </div>
+
     <div style="border-bottom: 1px solid var(--line);"></div>
 
     {{-- Candidate Information --}}
     <div class="section">
         <h3>Candidate Information</h3>
-
         <div class="rowline">
             <div class="label">Name:</div>
             <div class="value">{{ $application['name'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Phone:</div>
             <div class="value">{{ $application['phone'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Email:</div>
             <div class="value">{{ $application['email'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Gender:</div>
             <div class="value">{{ $application['gender'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Date of Birth:</div>
             <div class="value">{{ $application['dob'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Address:</div>
             <div class="value">{{ $application['address'] ?? '-' }}</div>
@@ -294,9 +287,9 @@
 
     <div style="border-bottom: 1px solid var(--line);"></div>
 
-    {{-- Other Information --}}
+    {{-- Job Information --}}
     <div class="section">
-        <h3>Other Information</h3>
+        <h3>Job Information</h3>
         <div class="rowline">
             <div class="label">Job Category:</div>
             <div class="value">{{ $application['jobCategory_name'] ?? '-' }}</div>
@@ -308,29 +301,24 @@
     {{-- Additional Information --}}
     <div class="section">
         <h3>Additional Information</h3>
-
         <div class="rowline">
             <div class="label">Passport No:</div>
             <div class="value">{{ $application['passport_no'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Nationality:</div>
             <div class="value">{{ $application['nationality'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Current Country:</div>
             <div class="value">{{ $application['current_country'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
             <div class="label">Experience Year:</div>
             <div class="value">{{ $application['experienceYear'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
-            <div class="label">Work Related Video Link:</div>
+            <div class="label">Video Link:</div>
             <div class="value">
                 @if($application['videoLink'])
                 <a href="{{ $application['videoLink'] }}" target="_blank">Watch Video</a>
@@ -339,41 +327,29 @@
                 @endif
             </div>
         </div>
-
         <div class="rowline">
             <div class="label">English Course:</div>
             <div class="value">{{ $application['englishCourse'] ?? '-' }}</div>
         </div>
-
         <div class="rowline">
-            <div class="label">Upload CV:</div>
+            <div class="label">CV:</div>
             <div class="value">
-                @if(!empty($application['cv' ?? '']))
-                <a href="{{ asset($application['cv']) }}" target="_blank">View CV</a>
+                @if(!empty($application['cv']))
+                <a href="{{ asset($application['cv']) }}" target="_blank">Download CV</a>
                 @else
                 <span>-</span>
                 @endif
             </div>
         </div>
-
     </div>
 
-    {{-- Footer buttons --}}
     <div class="footer">
         <div class="left">
+            <a href="javascript:window.print()" class="btn btn-light">Print</a>
         </div>
-        <form action="{{route('application.submit')}}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <div class="center">
-                <button type="submit" class="btn btn-primary">Apply</button>
-            </div>
-        </form>
-        <div class="right">
+        <div class="center">
+            <a href="{{ route('homepage') }}" class="btn btn-primary">Back to Home</a>
         </div>
+        <div class="right"></div>
     </div>
-
 </div>
-
-<!-- <div class="copyright">
-    &copy; {{ now()->year }} {{ $application->company_name ?? 'BritFly Jobs' }}. Version 1.0.0.
-</div> -->

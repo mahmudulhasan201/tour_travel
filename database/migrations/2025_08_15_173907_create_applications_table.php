@@ -15,7 +15,9 @@ return new class extends Migration
             $table->id();
             $table->foreignId('job_category_id')->constrained('job_categories'); // jobCategory
             $table->string('phone', 20); // phone
+            $table->string('invoice_no')->unique(); // phone
             $table->string('name'); // name
+            $table->string('date'); // name
             $table->string('email'); // email
             $table->string('address')->nullable(); // address
             $table->enum('gender', ['male', 'female', 'other'])->nullable(); // gender
@@ -28,6 +30,7 @@ return new class extends Migration
             $table->integer('experience_year')->nullable(); // experienceYear
             $table->string('cv')->nullable(); // cv
             $table->string('video_link')->nullable(); // videoLink
+            $table->enum('status',['pending', 'approved', 'rejected'])->default('pending'); // videoLink
             $table->timestamps();
         });
     }

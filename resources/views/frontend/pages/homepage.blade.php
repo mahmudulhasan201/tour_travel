@@ -68,8 +68,12 @@
      <section id="testimonials-home" class="testimonials-home section">
          <!-- Section Title -->
          <div class="container section-title" data-aos="fade-up">
-             <div><span>What Our Customers</span> <span class="description-title">Are Saying</span></div>
+             <div>
+                 <span>What Our Customers</span>
+                 <span class="description-title">Are Saying</span>
+             </div>
          </div><!-- End Section Title -->
+
          <div class="container" data-aos="fade-up" data-aos-delay="100">
              <div class="swiper init-swiper">
                  <script type="application/json" class="swiper-config">
@@ -97,76 +101,28 @@
                          }
                      }
                  </script>
+
                  <div class="swiper-wrapper">
+                     @foreach($reviews->take(9) as $review)
                      <div class="swiper-slide">
                          <div class="testimonial-item">
                              <p>
                                  <i class="bi bi-quote quote-icon-left"></i>
-                                 <span>Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.</span>
+                                 <span>{{ $review->review }}</span>
                                  <i class="bi bi-quote quote-icon-right"></i>
                              </p>
-                             <img src="{{url('frontend/assets/img/person/person-m-9.webp')}}" class="testimonial-img" alt="">
-                             <h3>Saul Goodman</h3>
-                             <h4>Ceo &amp; Founder</h4>
+                             <img src="{{ $review->imageUrl }}" class="testimonial-img" alt="">
+                             <h3>{{ $review->name }}</h3>
                          </div>
                      </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <p>
-                                 <i class="bi bi-quote quote-icon-left"></i>
-                                 <span>Export tempor illum tamen malis malis eram quae irure esse labore quem cillum quid malis quorum velit fore eram velit sunt aliqua noster fugiat irure amet legam anim culpa.</span>
-                                 <i class="bi bi-quote quote-icon-right"></i>
-                             </p>
-                             <img src="{{url('frontend/assets/img/person/person-f-5.webp')}}" class="testimonial-img" alt="">
-                             <h3>Sara Wilsson</h3>
-                             <h4>Designer</h4>
-                         </div>
-                     </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <p>
-                                 <i class="bi bi-quote quote-icon-left"></i>
-                                 <span>Enim nisi quem export duis labore cillum quae magna enim sint quorum nulla quem veniam duis minim tempor labore quem eram duis noster aute amet eram fore quis sint minim.</span>
-                                 <i class="bi bi-quote quote-icon-right"></i>
-                             </p>
-                             <img src="{{url('frontend/assets/img/person/person-f-12.webp')}}" class="testimonial-img" alt="">
-                             <h3>Jena Karlis</h3>
-                             <h4>Store Owner</h4>
-                         </div>
-                     </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <p>
-                                 <i class="bi bi-quote quote-icon-left"></i>
-                                 <span>Fugiat enim eram quae cillum dolore dolor amet nulla culpa multos export minim fugiat dolor enim duis veniam ipsum anim magna sunt elit fore quem dolore labore illum veniam.</span>
-                                 <i class="bi bi-quote quote-icon-right"></i>
-                             </p>
-                             <img src="{{url('frontend/assets/img/person/person-m-12.webp')}}" class="testimonial-img" alt="">
-                             <h3>Matt Brandon</h3>
-                             <h4>Freelancer</h4>
-                         </div>
-                     </div><!-- End testimonial item -->
-
-                     <div class="swiper-slide">
-                         <div class="testimonial-item">
-                             <p>
-                                 <i class="bi bi-quote quote-icon-left"></i>
-                                 <span>Quis quorum aliqua sint quem legam fore sunt eram irure aliqua veniam tempor noster veniam sunt culpa nulla illum cillum fugiat legam esse veniam culpa fore nisi cillum quid.</span>
-                                 <i class="bi bi-quote quote-icon-right"></i>
-                             </p>
-                             <img src="{{url('frontend/assets/img/person/person-m-13.webp')}}" class="testimonial-img" alt="">
-                             <h3>John Larson</h3>
-                             <h4>Entrepreneur</h4>
-                         </div>
-                     </div><!-- End testimonial item -->
+                     @endforeach
                  </div>
+
                  <div class="swiper-pagination"></div>
              </div>
          </div>
      </section><!-- /Testimonials Home Section -->
+
 
      <!-- Google Maps (Full Width) -->
      <div class="map-section text-center" data-aos="fade-up" data-aos-delay="200">
@@ -201,10 +157,13 @@
 
                  <!-- Right Form -->
                  <div class="col-md-6 d-flex justify-content-center">
-                     <form class="cta-form text-center p-4" action="forms/interest.php" method="post"
+                     <form class="cta-form text-center p-4" action="{{route('contact.store')}}" method="post"
                          style="background-color: #AAD4F0; color: white; border-radius: 10px; width: 100%; max-width: 400px;">
+                         @csrf
                          <img src="{{url('frontend/icon.png')}}" height="80" width="80" alt="icon" class="mb-3">
-                         <h5 style="margin-bottom: 10px; font-weight: 600;">Alex Jhon</h5>
+                         <h4 style="margin-bottom: 10px; font-weight: 600;">Mr Shahriar</h4>
+                         <p style="margin-bottom: 10px; font-weight: 600; color:red;">CEO</p>
+                         <p style="margin-bottom: 10px; font-weight: 600; color:grey;"><i class="bi bi-telephone-fill"></i> +923812 992348</p>
                          <input type="text" name="name" placeholder="Your Name" required
                              style="width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px;">
                          <input type="email" name="email" placeholder="Your Email" required

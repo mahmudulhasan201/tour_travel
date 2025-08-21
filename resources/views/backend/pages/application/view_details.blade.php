@@ -220,15 +220,15 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="page-header-title">
-                        <h5 class="m-b-30">Service</h5>
+                        <h5 class="m-b-30">View Application</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="#!"> <i class="ti-briefcase"></i> </a>
+                            <a href="#!"> <i class="ti-eye"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">Service</a>
+                        <li class="breadcrumb-item"><a href="#!">View Application</a>
                         </li>
                     </ul>
                 </div>
@@ -274,6 +274,11 @@
                         {{-- Candidate Information --}}
                         <div class="section">
                             <h3>Candidate Information</h3>
+
+                            <div class="rowline">
+                                <div class="label">Invoice No:</div>
+                                <div class="value">{{ $application->invoice_no ?? '-' }}</div>
+                            </div>
 
                             <div class="rowline">
                                 <div class="label">Name:</div>

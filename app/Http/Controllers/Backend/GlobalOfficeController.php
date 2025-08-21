@@ -3,31 +3,29 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
-use App\Services\FileUploadService;
+use App\Models\GlobalOffice;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
-class ServiceController extends Controller
+class GlobalOfficeController extends Controller
 {
-    public function sList(Request $request)
+    public function index(Request $request)
     {
         try {
             if ($request->ajax()) {
 
-                $data = Service::query();
+                $data = GlobalOffice::query();
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
-                    ->addColumn('image', function ($row) {
-                        return '<img width="100" src="' . $row->image_url . '" class="h-14 w-14 rounded-full object-contain" alt="Image">';
-                    })
+
+
                     ->addColumn('action', function ($row) {
-                        $editUrl = route('admin.service.edit', $row->id);
-                        $deleteUrl = route('admin.service.destroy', $row->id);
+                        $editUrl = route('admin.offices.edit', $row->id);
+                        $deleteUrl = route('admin.offices.destroy', $row->id);
 
                         $buttons = '';
 
@@ -40,12 +38,12 @@ class ServiceController extends Controller
                         return $buttons;
                     })
 
-                    ->rawColumns(['image', 'action'])
+                    ->rawColumns(['action'])
                     ->make(true);
             }
 
-            $services = Service::all();
-            return view('backend.pages.service.index', compact('services'));
+            $globals = GlobalOffice::all();
+            return view('backend.pages.globalOffice.index', compact('globals'));
         } catch (Exception $e) {
             if ($request->ajax()) {
                 return response()->json([
@@ -64,12 +62,15 @@ class ServiceController extends Controller
         // dd($request->all());
         try {
             $checkValidation = Validator::make($request->all(), [
-                'name'   => 'required',
-                'type' => 'required',
-                'image'       => 'required',
-                'description'   => 'required',
-                'status'     => 'required|in:active,inactive',
+                'country' => 'required|string',
+                'city' => 'required|string',
+                'office_address' => 'required|string',
+                'map_link' => 'nullable|string',
+                'video_link' => 'nullable|string',
+                'contacts' => 'nullable|array',
             ]);
+
+            // $checkValidation['contacts'] = json_encode($request->contacts);
 
             if ($checkValidation->fails()) {
                 $errorMessage = $checkValidation->errors()->first();
@@ -77,13 +78,13 @@ class ServiceController extends Controller
                 return redirect()->back()->withInput();
             }
 
-            $image = FileUploadService::fileUpload($request->file('image'), '/services');
-
-            Service::create([
-                'name' => $request->name,
-                'type' => $request->type,
-                'image' => $image,
-                'description' => $request->description,
+            GlobalOffice::create([
+                'country' => $request->country,
+                'city' => $request->city,
+                'office_address' => $request->office_address,
+                'map_link' => $request->map_link,
+                'video_link' => $request->video_link,
+                'contacts'       => $request->contacts, // <-- no json_encode
                 'status' => $request->status,
             ]);
 
@@ -98,8 +99,8 @@ class ServiceController extends Controller
     public function edit($id)
     {
         try {
-            $service = Service::findOrFail($id);
-            return view('backend.pages.service.edit', compact('service'));
+            $office = GlobalOffice::findOrFail($id);
+            return view('backend.pages.globalOffice.edit', compact('office'));
         } catch (Exception $e) {
             Alert::error('Error', 'Something went wrong while loading this edit page.');
             return redirect()->back();
@@ -109,15 +110,16 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $updateService = Service::findOrFail($id);
+            $updateOffice = GlobalOffice::findOrFail($id);
 
             // Validation
             $checkValidation = Validator::make($request->all(), [
-                'name'   => 'required',
-                'type' => 'required',
-                'image'       => 'required',
-                'description'   => 'required',
-                'status'     => 'required|in:active,inactive',
+                'country' => 'required|string',
+                'city' => 'required|string',
+                'office_address' => 'required|string',
+                'map_link' => 'nullable|string',
+                'video_link' => 'nullable|string',
+                'contacts' => 'nullable|array',
             ]);
 
             if ($checkValidation->fails()) {
@@ -128,38 +130,44 @@ class ServiceController extends Controller
 
             $data = [];
 
-            if ($request->filled('name')) {
-                $data['name'] = $request->name;
+            if ($request->filled('country')) {
+                $data['country'] = $request->country;
             }
 
-            if ($request->filled('type')) {
-                $data['type'] = $request->type;
+            if ($request->filled('city')) {
+                $data['city'] = $request->city;
             }
 
-            if ($request->hasFile('image')) {
-                $image = FileUploadService::fileUpload($request->file('image'), '/services');
-                FileUploadService::deleteFile($updateService->image, 'images/services/');
-                $data['image'] = $image;
+            if ($request->filled('office_address')) {
+                $data['office_address'] = $request->office_address;
             }
 
-
-            if ($request->filled('description')) {
-                $data['description'] = $request->description;
+            if ($request->filled('map_link')) {
+                $data['map_link'] = $request->map_link;
             }
+
+            if ($request->filled('video_link')) {
+                $data['video_link'] = $request->video_link;
+            }
+
+            if ($request->filled('contacts')) {
+                $data['contacts'] = $request->contacts; // <-- no json_encode
+            }
+
 
             if ($request->filled('status')) {
                 $data['status'] = $request->status;
             }
 
             if (!empty($data)) {
-                $updateService->update($data);
+                $updateOffice->update($data);
             }
 
             Alert::success('Success', "Updated Successfully.");
-            return redirect()->route('admin.service.list');
+            return redirect()->route('admin.offices.index');
         } catch (Exception $e) {
             Alert::error('Error', 'Something went wrong while updating this Page. ' . $e->getMessage());
-            return redirect()->route('admin.service.list');
+            return redirect()->route('admin.offices.index');
         }
     }
 
@@ -167,12 +175,11 @@ class ServiceController extends Controller
     //Delete
     public function destroy($id)
     {
-        try { 
+        try {
 
-            $deleteService = Service::find($id);
-            FileUploadService::deleteFile($deleteService->image, 'images/services/');
+            $deleteOffice = GlobalOffice::find($id);
 
-            $deleteService->delete();
+            $deleteOffice->delete();
 
             Alert::success('Success', " Deleted Successfully.");
             return redirect()->back();

@@ -1,6 +1,7 @@
 @extends('backend.master')
 
 @section('content')
+
 <div class="pcoded-content">
     <!-- Page-header start -->
     <div class="page-header">
@@ -8,15 +9,15 @@
             <div class="row align-items-center">
                 <div class="col-md-8">
                     <div class="page-header-title">
-                        <h5 class="m-b-30">View Application</h5>
+                        <h5 class="m-b-30">View Message</h5>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <ul class="breadcrumb-title">
                         <li class="breadcrumb-item">
-                            <a href="#!"> <i class="ti-eye"></i> </a>
+                            <a href="#!"> <i class="ti-envelope"></i> </a>
                         </li>
-                        <li class="breadcrumb-item"><a href="#!">View Application</a>
+                        <li class="breadcrumb-item"><a href="#!">View Message</a>
                         </li>
                     </ul>
                 </div>
@@ -32,17 +33,17 @@
                         <div class="col-md-12">
                             <div class="card shadow-sm">
                                 <div class="card-header bg-primary">
-                                    <h5 class="mb-0 text-white">Application List</h5>
+                                    <h5 class="mb-0 text-white">Message List</h5>
                                 </div>
                                 <div class="card-body">
                                     <table class="table table-bordered data-table mb-0">
                                         <thead>
                                             <tr>
                                                 <th scope="col" width="5%">ID </th>
-                                                <th scope="col" width="15%">Applicant Name</th>
-                                                <th scope="col" width="15%">Applicant Phone</th>
-                                                <th scope="col" width="15%">Applicant Email</th>
-                                                <th scope="col" width="15%">Status</th>
+                                                <th scope="col" width="15%">Name</th>
+                                                <th scope="col" width="15%">Phone</th>
+                                                <th scope="col" width="15%">Email</th>
+                                                <th scope="col" width="20%">Message</th>
                                                 <th scope="col" width="20%">Action</th>
                                             </tr>
                                         </thead>
@@ -61,13 +62,15 @@
 <br><br>
 @endsection
 
+
+
 @push('js')
 <script type="text/javascript">
     $(function() {
         var table = $('.data-table').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('admin.application.view') }}",
+            ajax: "{{ route('admin.view.message') }}",
             columns: [{
                     data: 'id',
                     name: 'id'
@@ -85,16 +88,15 @@
                     name: 'email'
                 },
                 {
-                    data: 'status',
-                    name: 'status'
+                    data: 'message',
+                    name: 'message'
                 },
                 {
                     data: 'action',
                     name: 'action',
-
                     orderable: false,
                     searchable: false
-                }
+                },
             ]
         });
     });

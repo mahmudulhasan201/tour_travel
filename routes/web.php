@@ -1,67 +1,62 @@
 <?php
 
 use App\Http\Controllers\Backend\ApplicationController;
+use App\Http\Controllers\Backend\ApplicationStatusController;
 use App\Http\Controllers\Backend\AuthController;
+use App\Http\Controllers\Backend\ContactController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\GalleryController;
-use App\Http\Controllers\Backend\ImageController;
+use App\Http\Controllers\Backend\GlobalOfficeController;
 use App\Http\Controllers\Backend\JobCategoryController;
+use App\Http\Controllers\Backend\ReviewController;
 use App\Http\Controllers\Backend\ServiceController;
 use App\Http\Controllers\Backend\VideoController;
 use App\Http\Controllers\Frontend\WebApplicationController;
 use App\Http\Controllers\Frontend\WebCustomerController;
 use App\Http\Controllers\Frontend\WebHomeController;
+use App\Models\ApplicationStatus;
 use Illuminate\Support\Facades\Route;
 
-
-
 //FRONTEND START
-
-//home
+//Home
 Route::get('/', [WebHomeController::class, 'home'])->name('homepage');
 
-//customer registration
-Route::get('/signup', [WebCustomerController::class, 'customerSignup'])->name('signup');
-Route::post('/do/signup', [WebCustomerController::class, 'submitSignup'])->name('submit.signup');
-
-//customer login
-Route::get('/signin', [WebCustomerController::class, 'signinForm'])->name('customer.signin');
-Route::post('/do/signin', [WebCustomerController::class, 'submitSignin'])->name('submit.customer.signin');
-
-//about-us
+//About-us
 Route::get('/about-us', [WebHomeController::class, 'aboutUs'])->name('about.us');
 
-//contact-us
-Route::get('/contact', [WebHomeController::class, 'contact'])->name('contact');
+//Services
+Route::get('/all-services', [WebHomeController::class, 'all_services'])->name('all.services');
 
 //Application Form
 Route::get('/application-create', [WebApplicationController::class, 'applicationCreate'])->name('create.application');
 Route::post('/application-preview', [WebApplicationController::class, 'applicationPreviewStore'])->name('application.preview.store');
 Route::get('/application-preview', [WebApplicationController::class, 'applicationPreview'])->name('application.preview');
 Route::post('/application/submit', [WebApplicationController::class, 'applicationSubmit'])->name('application.submit');
+Route::get('/your/application', [WebApplicationController::class, 'yourApplication'])->name('your.application');
 
-//services
-Route::get('/all-services', [WebHomeController::class, 'all_services'])->name('all.services');
-
+//Visa Success/Gallery
 Route::get('/all-gallery', [WebHomeController::class, 'all_gallery'])->name('all.gallery');
 Route::get('/all-video', [WebHomeController::class, 'all_video'])->name('all.video');
 Route::get('/gallery-images/{id}', [WebHomeController::class, 'gallery_images'])->name('gallery.images');
 
-//middleware for website
-Route::group(['middleware' => 'auth:customerGuard'], function () {
+//Global Office
+Route::get('/office', [WebHomeController::class, 'officeIndex'])->name('web.offices.index');
 
-    //customer view, edit & update
-    Route::get('/view/profile', [WebCustomerController::class, 'viewProfile'])->name('customer.view.profile');
-    Route::get('/customer/edit', [WebCustomerController::class, 'customerEdit'])->name('customer.edit');
-    Route::put('/customer/update', [WebCustomerController::class, 'customerUpdate'])->name('customer.update');
+//Review
+Route::get('/review', [WebHomeController::class, 'reviewIndex'])->name('web.review.index');
 
-    //customer logout
-    Route::get('/logout', [WebCustomerController::class, 'logout'])->name('customer.logout');
-});
+//Privacy & Policy
+Route::get('/policy', [WebHomeController::class, 'policyIndex'])->name('web.policy.index');
+
+//Contact-us
+Route::get('/contact', [WebHomeController::class, 'contact'])->name('contact');
+Route::post('/contact/store', [WebHomeController::class, 'contactStore'])->name('contact.store');
+
+//Application Status
+Route::get('/application-status',[WebHomeController::class,'status'])->name('application-status');
+Route::post('/application-status', [WebHomeController::class, 'checkStatus']); // Handle form submission
 
 //FRONTEND END
-
-
 
 //BACKEND START
 
@@ -82,7 +77,7 @@ Route::group(['prefix' => 'admin'], function () {
         Route::get('/service', [ServiceController::class, 'sList'])->name('admin.service.list');
         Route::post('/service/form/submit', [ServiceController::class, 'store'])->name('admin.service.store');
         Route::get('/service/edit/{id}', [ServiceController::class, 'edit'])->name('admin.service.edit');
-        Route::post('/service/update/{id}', [ServiceController::class, 'update'])->name('admin.service.update');
+        Route::put('/service/update/{id}', [ServiceController::class, 'update'])->name('admin.service.update');
         Route::get('/service/delete/{id}', [ServiceController::class, 'destroy'])->name('admin.service.destroy');
 
         // gallery
@@ -108,11 +103,31 @@ Route::group(['prefix' => 'admin'], function () {
         Route::put('/jobcategory/update/{id}', [JobCategoryController::class, 'update'])->name('admin.jobcategory.update');
         Route::get('/jobcategory/delete/{id}', [JobCategoryController::class, 'destroy'])->name('admin.jobcategory.destroy');
 
-        // application-view
+        //Application-view
         Route::get('/application-view', [ApplicationController::class, 'applicationView'])->name('admin.application.view');
         Route::get('/application-view-details/{id}', [ApplicationController::class, 'applicationViewDetails'])->name('admin.application.view.details');
-        Route::get('/application/approve', [ApplicationController::class, 'approve'])->name('admin.application.approve');
-        Route::get('/application/reject', [ApplicationController::class, 'reject'])->name('admin.application.reject');
+        Route::get('/application/approve/{id}', [ApplicationController::class, 'approve'])->name('admin.application.approve');
+        Route::get('/application/reject/{id}', [ApplicationController::class, 'reject'])->name('admin.application.reject');
+
+      //Contact(Send Message)
+        Route::get('/contact',[ContactController::class,'viewMessage'])->name('admin.view.message');
+        Route::get('/contact/view/{id}',[ContactController::class,'viewMessageDetails'])->name('admin.view.message.details');
+
+        //Review
+        //What Customers are Saying
+        Route::get('/review', [ReviewController::class, 'index'])->name('admin.review.index');
+        Route::post('/review/store', [ReviewController::class, 'store'])->name('admin.review.store');
+        Route::get('/review/edit/{id}', [ReviewController::class, 'edit'])->name('admin.review.edit');
+        Route::get('/review/view/{id}', [ReviewController::class, 'view'])->name('admin.review.view');
+        Route::put('/review/update/{id}', [ReviewController::class, 'update'])->name('admin.review.update');
+        Route::get('/review/destroy/{id}', [ReviewController::class, 'destroy'])->name('admin.review.destroy');
+
+        //Global Office
+        Route::get('/offices', [GlobalOfficeController::class, 'index'])->name('admin.offices.index');
+        Route::post('/offices/store', [GlobalOfficeController::class, 'store'])->name('admin.offices.store');
+        Route::get('/offices/edit/{id}', [GlobalOfficeController::class, 'edit'])->name('admin.offices.edit');
+        Route::put('/offices/update/{id}', [GlobalOfficeController::class, 'update'])->name('admin.offices.update');
+        Route::get('/offices/destroy/{id}', [GlobalOfficeController::class, 'destroy'])->name('admin.offices.destroy');
 
         //admin logout
         Route::get('/logout', [AuthController::class, 'adminLogout'])->name('logout');

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
-use App\Models\Service;
+use App\Models\Review;
 use App\Services\FileUploadService;
 use Exception;
 use Illuminate\Http\Request;
@@ -11,14 +11,14 @@ use Illuminate\Support\Facades\Validator;
 use RealRashid\SweetAlert\Facades\Alert;
 use Yajra\DataTables\Facades\DataTables;
 
-class ServiceController extends Controller
+class ReviewController extends Controller
 {
-    public function sList(Request $request)
+    public function index(Request $request)
     {
         try {
             if ($request->ajax()) {
 
-                $data = Service::query();
+                $data = Review::query();
 
                 return DataTables::eloquent($data)
                     ->addIndexColumn()
@@ -26,15 +26,17 @@ class ServiceController extends Controller
                         return '<img width="100" src="' . $row->image_url . '" class="h-14 w-14 rounded-full object-contain" alt="Image">';
                     })
                     ->addColumn('action', function ($row) {
-                        $editUrl = route('admin.service.edit', $row->id);
-                        $deleteUrl = route('admin.service.destroy', $row->id);
+                        $editUrl = route('admin.review.edit', $row->id);
+                        $deleteUrl = route('admin.review.destroy', $row->id);
+                        $viewUrl = route('admin.review.view', $row->id);
 
                         $buttons = '';
 
-                        $buttons .= '<a href="' . $editUrl . '" class="view btn btn-primary btn-sm">Edit</a> ';
+                        $buttons .= '<a href="' . $editUrl . '" class="edit btn btn-primary btn-sm">Edit</a> ';
+
+                        $buttons .= '<a href="' . $viewUrl . '" class="view btn btn-info btn-sm">View</a>';
 
                         $buttons .= '<a href="' . $deleteUrl . '" class="delete btn btn-danger btn-sm">Delete</a>';
-
 
 
                         return $buttons;
@@ -44,8 +46,8 @@ class ServiceController extends Controller
                     ->make(true);
             }
 
-            $services = Service::all();
-            return view('backend.pages.service.index', compact('services'));
+            $reviews = Review::all();
+            return view('backend.pages.review.index', compact('reviews'));
         } catch (Exception $e) {
             if ($request->ajax()) {
                 return response()->json([
@@ -65,9 +67,8 @@ class ServiceController extends Controller
         try {
             $checkValidation = Validator::make($request->all(), [
                 'name'   => 'required',
-                'type' => 'required',
-                'image'       => 'required',
-                'description'   => 'required',
+                'image'   => 'nullable',
+                'review'   => 'required',
                 'status'     => 'required|in:active,inactive',
             ]);
 
@@ -77,13 +78,12 @@ class ServiceController extends Controller
                 return redirect()->back()->withInput();
             }
 
-            $image = FileUploadService::fileUpload($request->file('image'), '/services');
+            $image = FileUploadService::fileUpload($request->file('image'), '/reviews');
 
-            Service::create([
+            Review::create([
                 'name' => $request->name,
-                'type' => $request->type,
                 'image' => $image,
-                'description' => $request->description,
+                'review' => $request->review,
                 'status' => $request->status,
             ]);
 
@@ -98,10 +98,21 @@ class ServiceController extends Controller
     public function edit($id)
     {
         try {
-            $service = Service::findOrFail($id);
-            return view('backend.pages.service.edit', compact('service'));
+            $review = Review::findOrFail($id);
+            return view('backend.pages.review.edit', compact('review'));
         } catch (Exception $e) {
-            Alert::error('Error', 'Something went wrong while loading this edit page.');
+            Alert::error('Error', 'Something went wrong.');
+            return redirect()->back();
+        }
+    }
+
+    public function view($id)
+    {
+        try {
+            $review = Review::findOrFail($id);
+            return view('backend.pages.review.view', compact('review'));
+        } catch (Exception $e) {
+            Alert::error('Error', 'Something went wrong.');
             return redirect()->back();
         }
     }
@@ -109,14 +120,13 @@ class ServiceController extends Controller
     public function update(Request $request, $id)
     {
         try {
-            $updateService = Service::findOrFail($id);
+            $updateReview = Review::findOrFail($id);
 
             // Validation
             $checkValidation = Validator::make($request->all(), [
                 'name'   => 'required',
-                'type' => 'required',
-                'image'       => 'required',
-                'description'   => 'required',
+                'image'   => 'nullable',
+                'review'   => 'required',
                 'status'     => 'required|in:active,inactive',
             ]);
 
@@ -132,19 +142,14 @@ class ServiceController extends Controller
                 $data['name'] = $request->name;
             }
 
-            if ($request->filled('type')) {
-                $data['type'] = $request->type;
-            }
-
             if ($request->hasFile('image')) {
-                $image = FileUploadService::fileUpload($request->file('image'), '/services');
-                FileUploadService::deleteFile($updateService->image, 'images/services/');
+                $image = FileUploadService::fileUpload($request->file('image'), '/reviews');
+                FileUploadService::deleteFile($updateReview->image, 'images/reviews/');
                 $data['image'] = $image;
             }
 
-
-            if ($request->filled('description')) {
-                $data['description'] = $request->description;
+            if ($request->filled('review')) {
+                $data['review'] = $request->review;
             }
 
             if ($request->filled('status')) {
@@ -152,14 +157,14 @@ class ServiceController extends Controller
             }
 
             if (!empty($data)) {
-                $updateService->update($data);
+                $updateReview->update($data);
             }
 
             Alert::success('Success', "Updated Successfully.");
-            return redirect()->route('admin.service.list');
+            return redirect()->route('admin.review.index');
         } catch (Exception $e) {
             Alert::error('Error', 'Something went wrong while updating this Page. ' . $e->getMessage());
-            return redirect()->route('admin.service.list');
+            return redirect()->route('video.list');
         }
     }
 
@@ -167,12 +172,10 @@ class ServiceController extends Controller
     //Delete
     public function destroy($id)
     {
-        try { 
+        try {
 
-            $deleteService = Service::find($id);
-            FileUploadService::deleteFile($deleteService->image, 'images/services/');
-
-            $deleteService->delete();
+            $deleteReview = Review::find($id);
+            $deleteReview->delete();
 
             Alert::success('Success', " Deleted Successfully.");
             return redirect()->back();

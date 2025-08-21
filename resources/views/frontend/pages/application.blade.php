@@ -133,6 +133,8 @@
                 </select>
             </div>
 
+            <input type="hidden" name="date" value="{{ now()->format('Y-m-d') }}">
+
             <div class="form-group">
                 <label for="phone">Phone *</label>
                 <input type="tel" id="phone" name="phone" placeholder="e.g., 01XXXXXXXXX" required>
@@ -169,8 +171,8 @@
             </div>
 
             <div class="form-group">
-                <label for="avatar">Avatar</label>
-                <input type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png">
+                <label for="avatar">Avatar*</label>
+                <input required type="file" id="avatar" name="avatar" accept=".jpg,.jpeg,.png">
                 <small>Allowed file formats: jpg, jpeg, png(File size: max 1MB)</small>
             </div>
 
@@ -214,8 +216,8 @@
             </div>
 
             <div class="form-group">
-                <label for="cv">Upload CV</label>
-                <input type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.ppt,.pptx">
+                <label for="cv">Upload CV *</label>
+                <input required type="file" id="cv" name="cv" accept=".pdf,.doc,.docx,.ppt,.pptx">
                 <small>Accepted file formats: pdf(File size: max 1MB)</small>
             </div>
 

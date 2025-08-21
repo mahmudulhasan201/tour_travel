@@ -4,10 +4,9 @@
 <div class="page-title dark-background" data-aos="fade" style="background-image: url(frontend/assets/img/travel/showcase-8.webp);">
     <div class="container position-relative">
         <h1>Contact</h1>
-        <p>Esse dolorum voluptatum ullam est sint nemo et est ipsa porro placeat quibusdam quia assumenda numquam molestias.</p>
         <nav class="breadcrumbs">
             <ol>
-                <li><a href="index.html">Home</a></li>
+                <li><a href="{{route('homepage')}}">Home</a></li>
                 <li class="current">Contact</li>
             </ol>
         </nav>
@@ -18,48 +17,33 @@
 <section id="contact" class="contact section">
 
     <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="contact-info-box p-4 shadow-sm rounded bg-white d-flex align-items-center justify-content-between flex-wrap mb-5">
 
-        <!-- Contact Info Boxes -->
-        <div class="row gy-4 mb-5">
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
-                <div class="contact-info-box">
-                    <div class="icon-box">
-                        <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Our Address</h4>
-                        <p>1842 Maple Avenue, Portland, Oregon 97204</p>
-                    </div>
+            <!-- Left Column -->
+            <div class="d-flex align-items-center mb-3 mb-lg-0">
+                <div class="icon-box me-3">
+                    <img src="{{url('frontend/icon.png')}}" height="60" width="60" alt="icon" class="rounded-circle" style="object-fit: cover;">
+                </div>
+                <div class="info-content">
+                    <h4 class="mb-1">Mr. Shahriar</h4>
+                    <p class="mb-0 text-muted">CEO, Shahriar worldwide ventures</p>
                 </div>
             </div>
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
-                <div class="contact-info-box">
-                    <div class="icon-box">
-                        <i class="bi bi-envelope"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Email Address</h4>
-                        <p>info@example.com</p>
-                        <p>contact@example.com</p>
-                    </div>
-                </div>
+            <!-- Middle Column -->
+            <div class="text-center flex-grow-1 mx-3">
+                <h5 class="mb-0" style="font-size: 1rem; color: #2c3e50;">
+                    I’m Always Ready to consult you<br>through WhatsApp 24×7
+                </h5>
             </div>
 
-            <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
-                <div class="contact-info-box">
-                    <div class="icon-box">
-                        <i class="bi bi-headset"></i>
-                    </div>
-                    <div class="info-content">
-                        <h4>Hours of Operation</h4>
-                        <p>Sunday-Fri: 9 AM - 6 PM</p>
-                        <p>Saturday: 9 AM - 4 PM</p>
-                    </div>
-                </div>
+            <!-- Right Column -->
+            <div class="d-flex align-items-center justify-content-end">
+                <i class="bi bi-telephone-fill me-2" style="font-size: 1.2rem; color: #2c3e50;"></i>
+                <span style="color: #2c3e50; font-weight: 500;">+971 522169430</span>
             </div>
+
         </div>
-
     </div>
 
     <!-- Google Maps (Full Width) -->
@@ -75,14 +59,15 @@
                     <h2 class="text-center mb-4">Send Us Message</h2>
                     <h5 class="text-center mb-4">We will reply to you as soon as possible.</h5>
 
-                    <form action="forms/contact.php" method="post" class="php-email-form">
+                    <form action="{{route('contact.store')}}" method="post">
+                        @csrf
                         <div class="row g-3">
 
                             <div class="col-md-4">
                                 <div class="form-group">
                                     <div class="input-with-icon">
                                         <i class="bi bi-person"></i>
-                                        <input type="text" class="form-control" name="name" placeholder="First Name" required="">
+                                        <input type="text" class="form-control" name="name" placeholder="Your Name" required="">
                                     </div>
                                 </div>
                             </div>
@@ -100,16 +85,7 @@
                                 <div class="form-group">
                                     <div class="input-with-icon">
                                         <i class="bi bi-telephone"></i>
-                                        <input type="number" class="form-control" name="phone" placeholder="Phone" required="">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="col-md-12">
-                                <div class="form-group">
-                                    <div class="input-with-icon">
-                                        <i class="bi bi-text-left"></i>
-                                        <input type="text" class="form-control" name="subject" placeholder="Subject" required="">
+                                        <input type="tel" class="form-control" name="phone" placeholder="Phone" required="">
                                     </div>
                                 </div>
                             </div>
@@ -118,19 +94,15 @@
                                 <div class="form-group">
                                     <div class="input-with-icon">
                                         <i class="bi bi-chat-dots message-icon"></i>
-                                        <textarea class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required=""></textarea>
+                                        <textarea type="text" class="form-control" name="message" placeholder="Write Message..." style="height: 180px" required></textarea>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="col-12">
-                                <div class="loading">Loading</div>
-                                <div class="error-message"></div>
-                                <div class="sent-message">Your message has been sent. Thank you!</div>
-                            </div>
+                    
 
                             <div class="col-12 text-center">
-                                <button type="submit" class="btn btn-primary btn-submit">SEND MESSAGE</button>
+                                <button type="submit" class="btn btn-primary">SEND MESSAGE</button>
                             </div>
                         </div>
                     </form>

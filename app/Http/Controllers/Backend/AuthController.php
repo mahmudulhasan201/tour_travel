@@ -26,8 +26,9 @@ class AuthController extends Controller
     {
         try {
             $credentials = $request->only('email', 'password');
+            $remember = $request->filled('remember'); // true if checkbox is checked
 
-            if (Auth::guard('admin')->attempt($credentials)) {
+            if (Auth::guard('admin')->attempt($credentials, $remember)) {
                 Alert::success('Success', 'Welcome back, Admin!');
                 return redirect()->route('dashboard');
             }

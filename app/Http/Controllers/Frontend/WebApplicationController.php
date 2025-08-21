@@ -39,6 +39,7 @@ class WebApplicationController extends Controller
             $validated = $request->validate([
                 'jobCategory' => 'required',
                 'phone' => 'required',
+                'date' => 'required',
                 'name' => 'required',
                 'email' => 'required|email',
                 'address' => 'nullable|string',
@@ -103,14 +104,20 @@ class WebApplicationController extends Controller
     {
         try {
             $application = Session::get('application_data');
+            // dd($application);
 
             if (!$application) {
                 return redirect()->route('homepage')->with('error', 'No data to submit.');
             }
 
-            Application::create([
+            $invoice_no = 'INV-' . time();
+
+            // $invoice_no = 'INV-' . rand(1000000, 9999999);
+
+            $submittedApplication = Application::create([
                 'job_category_id' => $application['jobCategory'],
                 'phone' => $application['phone'],
+                'date' => $application['date'],
                 'name' => $application['name'],
                 'email' => $application['email'],
                 'address' => $application['address'],
@@ -124,16 +131,49 @@ class WebApplicationController extends Controller
                 'experience_year' => $application['experienceYear'],
                 'cv' => $application['cv'],
                 'video_link' => $application['videoLink'],
+                'invoice_no' => $invoice_no
             ]);
 
-            Alert::success('Success', 'Application submitted successfully.');
+            Session::put('submitted_application', [
+                'data' => $application,
+                'invoice_no' => $invoice_no,
+                'id' => $submittedApplication->id
+            ]);
+
             Session::forget('application_data');
+            Alert::success('Success', 'Application submitted successfully.');
+            return redirect()->route('your.application');
 
             return redirect()->route('homepage');
         } catch (Exception $e) {
             Alert::error('Error', 'Something went wrong. ' . $e->getMessage());
 
             return redirect()->back();
+        }
+    }
+
+    public function yourApplication()
+    {
+        try {
+            $submitted = Session::get('submitted_application');
+
+            if (!$submitted) {
+                Alert::error('Error', 'No application found.');
+                return redirect()->route('homepage');
+            }
+
+            $application = $submitted['data'];
+            $invoice_no = $submitted['invoice_no'];
+            $id = $submitted['id'];
+
+            // Job Category নাম আবার বের করুন
+            $jobCategoryModel = JobCategory::find($application['jobCategory']);
+            $application['jobCategory_name'] = $jobCategoryModel ? $jobCategoryModel->jobCategory : '-';
+
+            return view('frontend.pages.your_application', compact('application', 'invoice_no', 'id'));
+        } catch (Exception $e) {
+            Alert::error('Error', 'Unable to load your application.');
+            return redirect()->route('homepage');
         }
     }
 }

@@ -10,7 +10,7 @@
             <h1>All Services</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{route('homepage')}}">Home</a></li>
                     <li class="current">All Srvices</li>
                 </ol>
             </nav>

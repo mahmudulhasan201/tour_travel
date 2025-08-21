@@ -71,11 +71,42 @@
                  </a>
              </li>
          </ul>
+
          <ul class="pcoded-item pcoded-left-item">
              <li>
                  <a href="{{route('admin.application.view')}}" class="waves-effect waves-dark">
                      <span class="pcoded-micon"><i class="ti-eye"></i></span>
                      <span class="pcoded-mtext" data-i18n="nav.form-components.main">Job Application View</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
+
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.view.message')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-envelope"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Contact</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
+
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.review.index')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-comments"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Review</span>
+                     <span class="pcoded-mcaret"></span>
+                 </a>
+             </li>
+         </ul>
+
+         <ul class="pcoded-item pcoded-left-item">
+             <li>
+                 <a href="{{route('admin.offices.index')}}" class="waves-effect waves-dark">
+                     <span class="pcoded-micon"><i class="ti-world"></i></span>
+                     <span class="pcoded-mtext" data-i18n="nav.form-components.main">Global Office</span>
                      <span class="pcoded-mcaret"></span>
                  </a>
              </li>

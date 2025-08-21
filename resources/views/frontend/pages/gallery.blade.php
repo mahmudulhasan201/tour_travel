@@ -9,7 +9,7 @@
             <h1>Gallery</h1>
             <nav class="breadcrumbs">
                 <ol>
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="{{route('homepage')}}">Home</a></li>
                     <li class="current">Gallery</li>
                 </ol>
             </nav>

@@ -15,9 +15,9 @@
                </div>
              </div>
            </div>
-           <a href="index.html">
-             <img class="img-fluid" src="{{url('backend/assets/images/logo.png')}}" alt="Theme-Logo" />
-           </a>
+           <a href="{{ route('dashboard') }}" class="navbar-brand" style="font-size: 24px; font-weight: bold; color: #fff; text-decoration: none;">
+    Admin
+</a>
            <a class="mobile-options waves-effect waves-light">
              <i class="ti-more"></i>
            </a>

@@ -39,8 +39,8 @@
                                 <div class="card-block">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h4 class="text-c-purple">$30200</h4>
-                                            <h6 class="text-muted m-b-0">All Earnings</h6>
+                                            <h4 class="text-c-purple">{{ $totalJobApplications }}</h4>
+                                            <h6 class="text-muted m-b-0">Total Job Application</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="fa fa-briefcase f-28"></i>
@@ -65,8 +65,8 @@
                                 <div class="card-block">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h4 class="text-c-green">290+</h4>
-                                            <h6 class="text-muted m-b-0">Page Views</h6>
+                                            <h4 class="text-c-green">{{ $totalReviews }}</h4>
+                                            <h6 class="text-muted m-b-0">Total Review </h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="fa fa-image f-28"></i>
@@ -76,7 +76,7 @@
                                 <div class="card-footer bg-c-green">
                                     <div class="row align-items-center">
                                         <div class="col-9">
-                                            <p class="text-white m-b-0"><strong>Gallery</strong></p>
+                                            <p class="text-white m-b-0"><strong>Clients</strong></p>
                                         </div>
                                         <div class="col-3 text-right">
                                             <i class="fa fa-line-chart text-white f-16"></i>
@@ -90,8 +90,8 @@
                                 <div class="card-block">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h4 class="text-c-red">145</h4>
-                                            <h6 class="text-muted m-b-0">Task Completed</h6>
+                                            <h4 class="text-c-red">{{ $totalGallery }}</h4>
+                                            <h6 class="text-muted m-b-0">Total Gallery</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="fa fa-video-camera f-28"></i>
@@ -115,8 +115,8 @@
                                 <div class="card-block">
                                     <div class="row align-items-center">
                                         <div class="col-8">
-                                            <h4 class="text-c-blue">500</h4>
-                                            <h6 class="text-muted m-b-0">Downloads</h6>
+                                            <h4 class="text-c-blue">{{ $totalDownloads }}</h4>
+                                            <h6 class="text-muted m-b-0">Global Office</h6>
                                         </div>
                                         <div class="col-4 text-right">
                                             <i class="fa fa-bar-chart f-28"></i>
@@ -126,7 +126,7 @@
                                 <div class="card-footer bg-c-blue">
                                     <div class="row align-items-center">
                                         <div class="col-9">
-                                            <p class="text-white m-b-0"><strong>Report</strong></p>
+                                            <p class="text-white m-b-0"><strong>Office</strong></p>
                                         </div>
                                         <div class="col-3 text-right">
                                             <i class="fa fa-line-chart text-white f-16"></i>

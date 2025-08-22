@@ -126,7 +126,8 @@
 
      <!-- Google Maps (Full Width) -->
      <div class="map-section text-center" data-aos="fade-up" data-aos-delay="200">
-         <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d48389.78314118045!2d-74.006138!3d40.710059!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a22a3bda30d%3A0xb89d1fe6bc499443!2sDowntown%20Conference%20Center!5e0!3m2!1sen!2sus!4v1676961268712!5m2!1sen!2sus" width="95%" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.234567!2d90.3660!3d23.7525!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0f8e1234567%3A0xabcdef1234567890!2sShahriar+Worldwide+Venture!5e0!3m2!1sen!2sbd!4v1692712345678!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+
      </div>
 
      <!-- Call To Action Section -->
@@ -146,10 +147,10 @@
 
                          <div class="action-section">
                              <div class="main-actions mb-1">
-                                 <h5>Morsed Rahman</h5><br>
+                                 <h5>Shahriar Alom</h5><br>
                              </div>
                              <div class="">
-                                 <h6>CEO</h6>
+                                 <h6>Managing Director</h6>
                              </div>
                          </div>
                      </div>
@@ -161,9 +162,9 @@
                          style="background-color: #AAD4F0; color: white; border-radius: 10px; width: 100%; max-width: 400px;">
                          @csrf
                          <img src="{{url('frontend/icon.png')}}" height="80" width="80" alt="icon" class="mb-3">
-                         <h4 style="margin-bottom: 10px; font-weight: 600;">Mr Shahriar</h4>
-                         <p style="margin-bottom: 10px; font-weight: 600; color:red;">CEO</p>
-                         <p style="margin-bottom: 10px; font-weight: 600; color:grey;"><i class="bi bi-telephone-fill"></i> +923812 992348</p>
+                         <h4 style="margin-bottom: 10px; font-weight: 600;">Md Shahriar Alom</h4>
+                         <p style="margin-bottom: 10px; font-weight: 600; color:red;">Managing Director</p>
+                         <p style="margin-bottom: 10px; font-weight: 600; color:grey;"><i class="bi bi-telephone-fill"></i> +855 96 822 5091</p>
                          <input type="text" name="name" placeholder="Your Name" required
                              style="width: 100%; padding: 10px 12px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 8px;">
                          <input type="email" name="email" placeholder="Your Email" required

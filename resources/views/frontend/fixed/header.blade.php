@@ -43,7 +43,7 @@
     <!-- 3rd Column: User Icon, Get Started Button -->
     <div class="col-md-4 d-flex align-items-center gap-2">
 
-      <i class="bi bi-telephone-fill"></i> +971 522169430
+      <i class="bi bi-telephone-fill"></i> +855 96 822 5091
 
       <!-- Get Started Button -->
       <a class="btn-getstarted d-none d-lg-inline-block" href="{{route('application-status')}}">Application Status</a>

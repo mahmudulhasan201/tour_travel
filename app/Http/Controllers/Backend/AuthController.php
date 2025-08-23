@@ -23,23 +23,25 @@ class AuthController extends Controller
 
     //admin login form submit
     public function login(Request $request)
-    {
-        try {
-            $credentials = $request->only('email', 'password');
-            $remember = $request->filled('remember'); // true if checkbox is checked
+{
+    try {
+        $credentials = $request->only('email', 'password');
+        $remember = $request->filled('remember'); // true if checkbox is checked
 
-            if (Auth::guard('admin')->attempt($credentials, $remember)) {
-                Alert::success('Success', 'Welcome back, Admin!');
-                return redirect()->route('dashboard');
-            }
-
-            Alert::error('Error', 'Invalid credentials! Please try again.');
-            return redirect()->back();
-        } catch (Exception $e) {
-            Alert::error('Error', $e->getMessage());
-            return redirect()->back();
+        if (Auth::guard('admin')->attempt($credentials, $remember)) {
+            // Authentication passed
+            Alert::success('Success', 'Welcome back, Admin!');
+            return redirect()->route('dashboard');
         }
+
+        Alert::error('Error', 'Invalid credentials! Please try again.');
+        return redirect()->back()->withInput($request->only('email', 'remember'));
+    } catch (Exception $e) {
+        Alert::error('Error', $e->getMessage());
+        return redirect()->back();
     }
+}
+
 
     //admin logout
     public function adminLogout()
